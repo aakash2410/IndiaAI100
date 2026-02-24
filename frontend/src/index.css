@@ -318,16 +318,8 @@ button {
   height: 60vh;
   z-index: -1;
   /* Use our new SVG hero graphic for a cleaner, scalable banner */
-  background: linear-gradient(180deg, rgba(37,99,235,0.06), rgba(248,250,252,0)), url('/hero-stripe.svg');
-  background-repeat: no-repeat;
-  background-position: center top;
-  /* use a larger but contained size so it reads well across breakpoints */
-  background-size: 60% auto;
-  opacity: 0;
-  transform: none; /* leave SVG rendering unskewed for crispness */
-  transform-origin: top left;
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%);
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%);
+  /* Decorative hero background removed per user request - no gradient or SVG underneath the cover image */
+  display: none;
 }
 
 .hero-title {
