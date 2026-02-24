@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 800" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="gradBlue" x1="0" x2="1">
+      <stop offset="0%" stop-color="#273583"/>
+      <stop offset="100%" stop-color="#5a66a7"/>
+    </linearGradient>
+    <linearGradient id="gradAccent" x1="0" x2="1">
+      <stop offset="0%" stop-color="#ec9d22"/>
+      <stop offset="100%" stop-color="#cec82a"/>
+    </linearGradient>
+    <filter id="b" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="40" />
+    </filter>
+  </defs>
+
+  <!-- Soft gradient blobs to echo the cover palette -->
+  <g opacity="0.95">
+    <path d="M320 220 C220 120 120 420 340 520 C560 620 700 480 660 320 C620 160 420 220 320 220 Z" fill="url(#gradBlue)" filter="url(#b)" opacity="0.95"/>
+    <path d="M920 180 C1020 80 1180 300 1080 420 C980 560 780 540 810 340 C840 160 920 180 920 180 Z" fill="url(#gradAccent)" filter="url(#b)" opacity="0.92"/>
+
+    <!-- Subtle connecting lines and nodes to suggest neural networks -->
+    <g stroke="#ffffff" stroke-opacity="0.18" stroke-width="2" fill="none">
+      <path d="M420 290 L480 260 L540 300 L620 280" />
+      <path d="M560 330 L640 360 L720 330 L820 300" />
+      <path d="M760 250 L820 240 L900 270 L980 260" />
+      <path d="M500 370 L560 400 L640 380" />
+    </g>
+
+    <!-- Nodes -->
+    <g fill="#fff" fill-opacity="0.9">
+      <circle cx="420" cy="290" r="6" />
+      <circle cx="480" cy="260" r="5" />
+      <circle cx="540" cy="300" r="6" />
+      <circle cx="620" cy="280" r="5" />
+      <circle cx="640" cy="360" r="5" />
+      <circle cx="820" cy="240" r="5" />
+      <circle cx="900" cy="270" r="6" />
+      <circle cx="980" cy="260" r="5" />
+    </g>
+
+    <!-- Accent nodes that pick up the orange/yellow palette -->
+    <g fill="url(#gradAccent)" stroke="#fff" stroke-width="1">
+      <circle cx="720" cy="330" r="7" fill-opacity="0.95" />
+      <circle cx="560" cy="400" r="6" fill-opacity="0.95" />
+    </g>
+  </g>
+</svg>
