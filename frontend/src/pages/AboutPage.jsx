@@ -19,6 +19,17 @@ const AboutPage = () => {
                     of these innovative organizations more interactive and accessible.
                 </p>
             </div>
+            <div className="glass-panel" style={{ padding: '2.5rem', marginTop: '2rem' }}>
+                <h2 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Contact Kalpa Impact</h2>
+                <p style={{ fontSize: '1.1rem', color: 'var(--color-text-secondary)', marginBottom: '0.5rem' }}>
+                    For more information or partnership inquiries, reach out to us at:
+                </p>
+                <ul style={{ fontSize: '1.1rem', color: 'var(--color-text-secondary)', paddingLeft: '1.25rem' }}>
+                    <li>Email: <a href="mailto:connect@kalpaimpact.com">connect@kalpaimpact.com</a></li>
+                    <li>Website: <a href="https://kalpaimpact.com" target="_blank" rel="noopener noreferrer">kalpaimpact.com</a></li>
+                    <li>LinkedIn: <a href="https://www.linkedin.com/company/kalpaimpact/" target="_blank" rel="noopener noreferrer">/company/kalpaimpact</a></li>
+                </ul>
+            </div>
         </div>
     );
 };
