@@ -6,7 +6,9 @@ import DiscoveryGrid from './components/DiscoveryGrid';
 import OrganizationModal from './components/OrganizationModal';
 import AboutPage from './pages/AboutPage';
 import MethodologyPage from './pages/MethodologyPage';
-import organizationsData from './data/organizations.json';
+import organizationsData from './data/organizations.json'
+import InsightPage from './pages/Insights';
+
 
 const Home = ({ searchQuery, setSearchQuery, selectedStage, setSelectedStage, selectedSector, setSelectedSector, selectedOrg, setSelectedOrg, filteredOrgs }) => (
   <>
@@ -84,6 +86,7 @@ function App() {
             />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/methodology" element={<MethodologyPage />} />
+            <Route path="/insights" element={<InsightPage />} />
           </Routes>
         </main>
       </div>
