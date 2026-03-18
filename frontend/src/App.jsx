@@ -8,10 +8,9 @@ import AboutPage from './pages/AboutPage';
 import MethodologyPage from './pages/MethodologyPage';
 import organizationsData from './data/organizations.json'
 import InsightPage from './pages/Insights';
-import DownloadModal from './components/DownloadModal';
 import Footer from './components/Footer';
 
-const Home = ({ searchQuery, setSearchQuery, selectedStage, setSelectedStage, selectedSector, setSelectedSector, availableSectors, selectedOrg, setSelectedOrg, filteredOrgs, setIsDownloadModalOpen }) => (
+const Home = ({ searchQuery, setSearchQuery, selectedStage, setSelectedStage, selectedSector, setSelectedSector, availableSectors, selectedOrg, setSelectedOrg, filteredOrgs }) => (
   <>
     <HeroSection
       searchQuery={searchQuery}
@@ -21,7 +20,6 @@ const Home = ({ searchQuery, setSearchQuery, selectedStage, setSelectedStage, se
       selectedSector={selectedSector}
       setSelectedSector={setSelectedSector}
       availableSectors={availableSectors}
-      onCoverClick={() => setIsDownloadModalOpen(true)}
     />
 
     <DiscoveryGrid
@@ -43,7 +41,6 @@ function App() {
   const [selectedStage, setSelectedStage] = useState('All');
   const [selectedSector, setSelectedSector] = useState('All Sectors');
   const [selectedOrg, setSelectedOrg] = useState(null);
-  const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
 
   // Extract unique sectors
   const availableSectors = ['All Sectors', ...new Set(organizationsData.map(org => org.sector).filter(Boolean))].sort((a, b) => {
@@ -78,7 +75,7 @@ function App() {
         <div className="bg-glow"></div>
         <div className="bg-glow-accent"></div>
 
-        <Header onDownloadClick={() => setIsDownloadModalOpen(true)} />
+        <Header />
 
         <main className="main-content">
           <Routes>
@@ -96,7 +93,6 @@ function App() {
                   selectedOrg={selectedOrg}
                   setSelectedOrg={setSelectedOrg}
                   filteredOrgs={filteredOrgs}
-                  setIsDownloadModalOpen={setIsDownloadModalOpen}
                 />
               }
             />
@@ -107,7 +103,6 @@ function App() {
         </main>
         
         <Footer />
-        <DownloadModal isOpen={isDownloadModalOpen} onClose={() => setIsDownloadModalOpen(false)} />
       </div>
     </Router>
   );

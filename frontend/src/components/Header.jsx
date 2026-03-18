@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Sparkles } from 'lucide-react';
 
-const Header = ({ onDownloadClick }) => {
+const Header = () => {
     const location = useLocation();
 
     return (
@@ -27,7 +27,7 @@ const Header = ({ onDownloadClick }) => {
                 </nav>
 
                 <div className="header-actions">
-                    <button onClick={onDownloadClick} className="btn-primary" style={{ display: 'inline-block' }}>Download full report</button>
+                    <a href="/Report_Indias_AI_Impact_Startups.pdf" download className="btn-primary" style={{ display: 'inline-block', textDecoration: 'none' }}>Download full report</a>
                 </div>
             </div>
         </header>
