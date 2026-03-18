@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
 :root {
   /* PDF Theme colors: Deep Blues, Clean Whites, and vibrant accents */
   --color-bg: #f8fafc;
@@ -9,23 +11,25 @@
   --color-text-tertiary: #64748b;
 
   /* Vibrant Blue from the PDF theme */
-  --color-primary: #273583; /* deep PDF blue */
-  --color-primary-2: #5a66a7; /* secondary blue for gradients */
+  --color-primary: #273583;
+  /* deep PDF blue */
+  --color-primary-2: #5a66a7;
+  /* secondary blue for gradients */
   --color-primary-hover: #25327c;
-  --color-primary-rgb: 39,53,131; /* rgb for rgba usage */
+  --color-primary-rgb: 39, 53, 131;
+  /* rgb for rgba usage */
 
   /* Accent from the PDF */
   --color-accent: #ec9d22;
   --color-accent-2: #cec82a;
-  --color-accent-rgb: 236,157,34;
+  --color-accent-rgb: 236, 157, 34;
 
   --color-border: rgba(15, 23, 42, 0.08);
   --color-border-hover: rgba(15, 23, 42, 0.15);
 
-  --glow-primary: rgba(var(--color-primary-rgb), 0.15);
   --glow-accent: rgba(var(--color-accent-rgb), 0.15);
 
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-sans: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
   /* Header height used to offset modals from viewport top */
@@ -238,9 +242,13 @@ button {
   position: relative;
 }
 
-.nav-link:hover,
-.nav-link.active {
+.nav-link:hover {
   color: var(--color-text-primary);
+}
+
+.nav-link.active {
+  color: var(--color-primary);
+  font-weight: 600;
 }
 
 .btn-primary {
@@ -305,8 +313,17 @@ button {
 }
 
 @media (max-width: 768px) {
-  .hero-cover-wrapper { width: min(100%, 640px); padding: 0.5rem; border-radius: 12px; }
-  .hero-cover-image {width: min(100%, 640px); padding: 0.5rem; border-radius: 12px; }
+  .hero-cover-wrapper {
+    width: min(100%, 640px);
+    padding: 0.5rem;
+    border-radius: 12px;
+  }
+
+  .hero-cover-image {
+    width: min(100%, 640px);
+    padding: 0.5rem;
+    border-radius: 12px;
+  }
 }
 
 .hero-section::before {
@@ -352,7 +369,7 @@ button {
 
 /* Search and Filter Panel (Stripe-like) */
 .search-filter-container {
-  max-width: 700px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 0.5rem;
   display: flex;
@@ -634,7 +651,8 @@ button {
   /* pad top by header height so modal sits below header */
   padding: 1rem;
   padding-top: calc(var(--header-height) + 1rem);
-  overflow-y: auto; /* allow scrolling if modal taller than viewport */
+  overflow-y: auto;
+  /* allow scrolling if modal taller than viewport */
   opacity: 0;
   animation: fadeIn var(--transition-fast) forwards;
 }
@@ -674,43 +692,57 @@ button {
 .close-btn {
   width: 36px;
   height: 36px;
-  }
+}
 
-  .partner-logos {
-    display: flex;
-    gap: 0.75rem;
-    align-items: center;
-    margin-right: 0.5rem;
+.partner-logos {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-right: 0.5rem;
+}
+
+.partner-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: var(--color-bg-secondary);
+  padding: 6px;
+  border: 1px solid var(--color-border);
+}
+
+.partner-logo.indiaai-logo {
+  /* IndiaAI provided logo is often white; use a colored gradient background for contrast */
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-2) 100%);
+  padding: 8px;
+  width: 56px;
+  height: 40px;
+  border-radius: 6px;
+}
+
+@media (max-width: 640px) {
+  .header {
+    height: 64px;
   }
 
   .partner-logo {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    object-fit: contain;
-    border-radius: 8px;
-    background: var(--color-bg-secondary);
-    padding: 6px;
-    border: 1px solid var(--color-border);
+    width: 40px;
+    height: 40px;
+    padding: 4px;
   }
 
   .partner-logo.indiaai-logo {
-    /* IndiaAI provided logo is often white; use a colored gradient background for contrast */
-    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-2) 100%);
-    padding: 8px;
-    width: 56px;
-    height: 40px;
-    border-radius: 6px;
+    width: 44px;
+    height: 32px;
   }
 
-  @media (max-width: 640px) {
-    .header { height: 64px; }
-    .partner-logo { width: 40px; height: 40px; padding: 4px; }
-    .partner-logo.indiaai-logo { width: 44px; height: 32px; }
-    :root { --header-height: 64px; }
+  :root {
+    --header-height: 64px;
   }
+}
 
 .close-btn:hover {
   background: var(--color-bg);

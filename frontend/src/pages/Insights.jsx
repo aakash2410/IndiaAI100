@@ -26,25 +26,7 @@ const InsightPage = () => {
                         </div>
                     ))}
                 </div>
-                <div style={{ marginTop: '2rem', textAlign: 'center' }}>
-                    <a
-                        href="./Report_Indias_AI_Impact_Startups.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{
-                            display: 'inline-block',
-                            padding: '0.75rem 1.5rem',
-                            backgroundColor: 'var(--color-primary)',
-                            color: 'white',
-                            textDecoration: 'none',
-                            borderRadius: '6px',
-                            fontSize: '1rem',
-                            fontWeight: 'bold'
-                        }}
-                    >
-                        Download Full PDF
-                    </a>
-                </div>
+               
             </div>
         </div>
     );

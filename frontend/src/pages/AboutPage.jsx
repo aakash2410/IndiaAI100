@@ -22,7 +22,7 @@ const AboutPage = () => {
             <div className="glass-panel" style={{ padding: '2.5rem', marginTop: '2rem' }}>
                 <h2 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Contact Kalpa Impact</h2>
                 <p style={{ fontSize: '1.1rem', color: 'var(--color-text-secondary)', marginBottom: '0.5rem' }}>
-                    For more information or partnership inquiries, reach out to us at:
+                    For more information or to explore collaborations, reach out to us at:
                 </p>
                 <ul style={{ fontSize: '1.1rem', color: 'var(--color-text-secondary)', paddingLeft: '1.25rem' }}>
                     <li>Email: <a href="mailto:connect@kalpaimpact.com">connect@kalpaimpact.com</a></li>
