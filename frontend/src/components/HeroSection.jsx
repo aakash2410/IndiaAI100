@@ -15,7 +15,7 @@ const HeroSection = ({ searchQuery, setSearchQuery, selectedStage, setSelectedSt
         <section className="hero-section">
             <div className="container text-center animate-fade-in">
                 {/* Replace textual hero with the report frontpage image scaled for the hero */}
-                <a href="/Report_Indias_AI_Impact_Startups.pdf" download className="hero-cover-wrapper" style={{ position: 'relative', display: 'inline-block', marginBottom: '2rem', cursor: 'pointer' }}>
+                <a href="/Report_Indias_AI_Impact_Startups.pdf" target="_blank" rel="noopener noreferrer" className="hero-cover-wrapper" style={{ position: 'relative', display: 'inline-block', marginBottom: '2rem', cursor: 'pointer' }}>
                     <img src="/cover-transparent.png" alt="India AI 100 Startups report cover featuring the title and year, presenting the comprehensive guide to India's leading artificial intelligence startups, set against a professional and modern design background" className="hero-cover-image" />
                     <div className="hero-cover-decor" aria-hidden="true" />
                 </a>
