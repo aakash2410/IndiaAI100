@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
 import { Search, Filter, ChevronDown, ChevronUp } from 'lucide-react';
 
-const HeroSection = ({ searchQuery, setSearchQuery, selectedStage, setSelectedStage, selectedSector, setSelectedSector }) => {
+const HeroSection = ({ searchQuery, setSearchQuery, selectedStage, setSelectedStage, selectedSector, setSelectedSector, availableSectors, onCoverClick }) => {
     const [isFiltersExpanded, setIsFiltersExpanded] = useState(false);
     const stages = ['All', 'Early Stage', 'Growth Stage', 'Non-profit'];
-    const sectors = ['All Sectors', 'HealthTech', 'AgriTech', 'EdTech', 'FinTech', 'GovTech', 'Enterprise AI', 'Mobility', 'SpaceTech', 'ClimateTech'];
+
+    const handleClearFilters = () => {
+        setSearchQuery('');
+        setSelectedStage('All');
+        setSelectedSector('All Sectors');
+    };
 
     return (
         <section className="hero-section">
             <div className="container text-center animate-fade-in">
                 {/* Replace textual hero with the report frontpage image scaled for the hero */}
-                <div className="hero-cover-wrapper" style={{ position: 'relative', display: 'inline-block', marginBottom: '2rem' }}>
-                    <a href="/Report_Indias_AI_Impact_Startups.pdf" target="_blank" rel="noopener noreferrer">
-                        <img src="/cover-transparent.png" alt="India AI 100 Startups report cover featuring the title and year, presenting the comprehensive guide to India's leading artificial intelligence startups, set against a professional and modern design background" className="hero-cover-image"/>
-                    </a>
+                <div className="hero-cover-wrapper" style={{ position: 'relative', display: 'inline-block', marginBottom: '2rem', cursor: 'pointer' }} onClick={onCoverClick}>
+                    <img src="/cover-transparent.png" alt="India AI 100 Startups report cover featuring the title and year, presenting the comprehensive guide to India's leading artificial intelligence startups, set against a professional and modern design background" className="hero-cover-image" />
                     <div className="hero-cover-decor" aria-hidden="true" />
                 </div>
 
@@ -36,6 +39,15 @@ const HeroSection = ({ searchQuery, setSearchQuery, selectedStage, setSelectedSt
                             Filters
                             {isFiltersExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                         </button>
+                        {(searchQuery || selectedStage !== 'All' || selectedSector !== 'All Sectors') && (
+                            <button
+                                className="filter-clear-btn hover-elevate"
+                                onClick={handleClearFilters}
+                                style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '0.6rem 1.2rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: 'var(--radius-full)', color: '#ef4444', fontWeight: '600', transition: 'all var(--transition-fast)', border: '1px solid rgba(239, 68, 68, 0.2)', marginLeft: '8px' }}
+                            >
+                                Clear
+                            </button>
+                        )}
                     </div>
 
                     {isFiltersExpanded && (
@@ -58,7 +70,7 @@ const HeroSection = ({ searchQuery, setSearchQuery, selectedStage, setSelectedSt
                             <div className="filter-section">
                                 <h4 style={{ fontSize: '0.85rem', color: 'var(--color-text-tertiary)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.75rem' }}>Filter by Sector</h4>
                                 <div className="tags-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-                                    {sectors.map(sector => (
+                                    {(availableSectors || []).map(sector => (
                                         <button
                                             key={sector}
                                             className={`stage-btn ${selectedSector === sector ? 'active' : ''}`}

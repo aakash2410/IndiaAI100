@@ -35,11 +35,18 @@ const DiscoveryGrid = ({ organizations, onSelectOrg }) => {
                         >
                             <div className="card-header">
                                 <h3 className="org-name">{org.name}</h3>
-                                {org.stage && (
-                                    <span className={`org-stage ${stageClass}`}>
-                                        {org.stage.replace('Stage', '').trim()}
-                                    </span>
-                                )}
+                                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', justifyContent: 'flex-end' }}>
+                                    {org.sector && (
+                                        <span className={`org-stage`} style={{ background: 'var(--color-bg-tertiary)', color: 'var(--color-text-secondary)', border: '1px solid var(--color-border)' }}>
+                                            {org.sector}
+                                        </span>
+                                    )}
+                                    {org.stage && (
+                                        <span className={`org-stage ${stageClass}`}>
+                                            {org.stage.replace('Stage', '').trim()}
+                                        </span>
+                                    )}
+                                </div>
                             </div>
 
                             <div className="card-body">

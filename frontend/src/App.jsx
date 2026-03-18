@@ -8,9 +8,10 @@ import AboutPage from './pages/AboutPage';
 import MethodologyPage from './pages/MethodologyPage';
 import organizationsData from './data/organizations.json'
 import InsightPage from './pages/Insights';
+import DownloadModal from './components/DownloadModal';
+import Footer from './components/Footer';
 
-
-const Home = ({ searchQuery, setSearchQuery, selectedStage, setSelectedStage, selectedSector, setSelectedSector, selectedOrg, setSelectedOrg, filteredOrgs }) => (
+const Home = ({ searchQuery, setSearchQuery, selectedStage, setSelectedStage, selectedSector, setSelectedSector, availableSectors, selectedOrg, setSelectedOrg, filteredOrgs, setIsDownloadModalOpen }) => (
   <>
     <HeroSection
       searchQuery={searchQuery}
@@ -19,6 +20,8 @@ const Home = ({ searchQuery, setSearchQuery, selectedStage, setSelectedStage, se
       setSelectedStage={setSelectedStage}
       selectedSector={selectedSector}
       setSelectedSector={setSelectedSector}
+      availableSectors={availableSectors}
+      onCoverClick={() => setIsDownloadModalOpen(true)}
     />
 
     <DiscoveryGrid
@@ -40,11 +43,22 @@ function App() {
   const [selectedStage, setSelectedStage] = useState('All');
   const [selectedSector, setSelectedSector] = useState('All Sectors');
   const [selectedOrg, setSelectedOrg] = useState(null);
+  const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
+
+  // Extract unique sectors
+  const availableSectors = ['All Sectors', ...new Set(organizationsData.map(org => org.sector).filter(Boolean))].sort((a, b) => {
+    if (a === 'All Sectors') return -1;
+    if (b === 'All Sectors') return 1;
+    return a.localeCompare(b);
+  });
 
   // Filter logic
   const filteredOrgs = organizationsData.filter(org => {
-    const matchesSearch = org.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      org.problem.toLowerCase().includes(searchQuery.toLowerCase());
+    const searchLower = searchQuery.toLowerCase();
+    const matchesSearch = org.name.toLowerCase().includes(searchLower) ||
+      org.problem.toLowerCase().includes(searchLower) ||
+      (org.sector && org.sector.toLowerCase().includes(searchLower)) ||
+      (org.stage && org.stage.toLowerCase().includes(searchLower));
 
     // Stage logic
     const matchesStage = selectedStage === 'All' ||
@@ -64,7 +78,7 @@ function App() {
         <div className="bg-glow"></div>
         <div className="bg-glow-accent"></div>
 
-        <Header />
+        <Header onDownloadClick={() => setIsDownloadModalOpen(true)} />
 
         <main className="main-content">
           <Routes>
@@ -78,9 +92,11 @@ function App() {
                   setSelectedStage={setSelectedStage}
                   selectedSector={selectedSector}
                   setSelectedSector={setSelectedSector}
+                  availableSectors={availableSectors}
                   selectedOrg={selectedOrg}
                   setSelectedOrg={setSelectedOrg}
                   filteredOrgs={filteredOrgs}
+                  setIsDownloadModalOpen={setIsDownloadModalOpen}
                 />
               }
             />
@@ -89,6 +105,9 @@ function App() {
             <Route path="/insights" element={<InsightPage />} />
           </Routes>
         </main>
+        
+        <Footer />
+        <DownloadModal isOpen={isDownloadModalOpen} onClose={() => setIsDownloadModalOpen(false)} />
       </div>
     </Router>
   );

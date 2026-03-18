@@ -23,12 +23,19 @@ const OrganizationModal = ({ organization, onClose }) => {
             <div className="modal-content">
                 <div className="modal-header">
                     <div>
-                        <h2 style={{ fontSize: '1.75rem', marginBottom: '0.25rem', marginTop: '0.5rem' }}>{organization.name}</h2>
-                        {organization.stage && (
-                            <span className={`org-stage ${organization.stage.toLowerCase().includes('growth') ? 'growth' : 'early'}`}>
-                                {organization.stage}
-                            </span>
-                        )}
+                        <h2 style={{ fontSize: '1.75rem', marginBottom: '0.35rem', marginTop: '0.5rem' }}>{organization.name}</h2>
+                        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                            {organization.sector && (
+                                <span className={`org-stage`} style={{ background: 'var(--color-bg-tertiary)', color: 'var(--color-text-secondary)', border: '1px solid var(--color-border)' }}>
+                                    {organization.sector}
+                                </span>
+                            )}
+                            {organization.stage && (
+                                <span className={`org-stage ${organization.stage.toLowerCase().includes('growth') ? 'growth' : 'early'}`}>
+                                    {organization.stage}
+                                </span>
+                            )}
+                        </div>
                     </div>
                     <button className="close-btn" onClick={onClose} aria-label="Close modal">
                         <X size={20} />
