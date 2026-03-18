@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Search, Filter, ChevronDown, ChevronUp } from 'lucide-react';
 
-const HeroSection = ({ searchQuery, setSearchQuery, selectedStage, setSelectedStage, selectedSector, setSelectedSector, availableSectors, onCoverClick }) => {
+const HeroSection = ({ searchQuery, setSearchQuery, selectedStage, setSelectedStage, selectedSector, setSelectedSector, availableSectors }) => {
     const [isFiltersExpanded, setIsFiltersExpanded] = useState(false);
     const stages = ['All', 'Early Stage', 'Growth Stage', 'Non-profit'];
 
@@ -15,10 +15,10 @@ const HeroSection = ({ searchQuery, setSearchQuery, selectedStage, setSelectedSt
         <section className="hero-section">
             <div className="container text-center animate-fade-in">
                 {/* Replace textual hero with the report frontpage image scaled for the hero */}
-                <div className="hero-cover-wrapper" style={{ position: 'relative', display: 'inline-block', marginBottom: '2rem', cursor: 'pointer' }} onClick={onCoverClick}>
+                <a href="/Report_Indias_AI_Impact_Startups.pdf" download className="hero-cover-wrapper" style={{ position: 'relative', display: 'inline-block', marginBottom: '2rem', cursor: 'pointer' }}>
                     <img src="/cover-transparent.png" alt="India AI 100 Startups report cover featuring the title and year, presenting the comprehensive guide to India's leading artificial intelligence startups, set against a professional and modern design background" className="hero-cover-image" />
                     <div className="hero-cover-decor" aria-hidden="true" />
-                </div>
+                </a>
 
                 <div className="search-filter-container glass-panel" style={{ flexDirection: 'column', alignItems: 'stretch' }}>
                     <div className="search-bar" style={{ width: '100%', display: 'flex' }}>
