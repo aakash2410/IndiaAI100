@@ -20,7 +20,7 @@ const HeroSection = ({ searchQuery, setSearchQuery, selectedStage, setSelectedSt
                     <div className="hero-cover-decor" aria-hidden="true" />
                 </a>
 
-                <div className="search-filter-container glass-panel" style={{ flexDirection: 'column', alignItems: 'stretch' }}>
+                <div className="search-filter-container glass-panel" style={{ flexDirection: 'column', alignItems: 'stretch', borderRadius: isFiltersExpanded ? '24px' : 'var(--radius-full)' }}>
                     <div className="search-bar" style={{ width: '100%', display: 'flex' }}>
                         <Search className="search-icon" size={20} />
                         <input
@@ -51,7 +51,7 @@ const HeroSection = ({ searchQuery, setSearchQuery, selectedStage, setSelectedSt
                     </div>
 
                     {isFiltersExpanded && (
-                        <div className="expanded-filters animate-fade-in" style={{ padding: '1.5rem', borderTop: '1px solid var(--color-border)', display: 'flex', flexDirection: 'column', gap: '1.5rem', textAlign: 'left' }}>
+                        <div className="expanded-filters animate-fade-in" style={{ padding: '1.5rem', borderTop: '1px solid var(--color-border)', display: 'flex', flexWrap: 'wrap', overflow: 'hidden', flexDirection: 'column', gap: '1.5rem', textAlign: 'left' }}>
                             <div className="filter-section">
                                 <h4 style={{ fontSize: '0.85rem', color: 'var(--color-text-tertiary)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.75rem' }}>Filter by Stage</h4>
                                 <div className="tags-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
