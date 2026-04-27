@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import DiscoveryGrid from './components/DiscoveryGrid';
@@ -103,6 +104,7 @@ function App() {
         </main>
         
         <Footer />
+        <Analytics />
       </div>
     </Router>
   );
